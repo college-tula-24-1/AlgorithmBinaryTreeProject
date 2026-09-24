@@ -319,3 +319,29 @@ inline void BinaryTree<T>::RotateLeft(Node<T>* node)
 	A->color = Color::Red;
 	B->color = Color::Black;
 }
+
+template<typename T>
+inline void BinaryTree<T>::SwapCopor(Node<T>* parent)
+{
+	parent->left->color = parent->color;
+	parent->right->color = parent->color;
+	parent->color = (Color)(!(bool)parent->color);
+}
+
+template<typename T>
+inline size_t BinaryTree<T>::Size() const
+{
+	return size;
+}
+
+template<typename T>
+inline Node<T>* BinaryTree<T>::Root() const
+{
+	return root;
+}
+
+template<typename T>
+inline bool BinaryTree<T>::Contains(T value)
+{
+	return Find(value);
+}
